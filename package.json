@@ -1,11 +1,17 @@
 {
-  "name": "Tinder.Backend",
+  "name": "tinder-api",
   "version": "1.0.0",
   "description": "API Rest Tinder",
   "main": "index.js",
   "author": "Vitor Emidio <vitorsemidio.96@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
