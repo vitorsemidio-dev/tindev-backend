@@ -1,0 +1,8 @@
+{
+  "name": "Tinder.Backend",
+  "version": "1.0.0",
+  "description": "API Rest Tinder",
+  "main": "index.js",
+  "author": "Vitor Emidio <vitorsemidio.96@gmail.com>",
+  "license": "MIT"
+}
