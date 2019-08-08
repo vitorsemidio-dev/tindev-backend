@@ -4,5 +4,8 @@
   "description": "API Rest Tinder",
   "main": "index.js",
   "author": "Vitor Emidio <vitorsemidio.96@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
