@@ -15,7 +15,7 @@ const DevSchema = new Schema({
         required: true,
     },
 }, {
-    timesstamps: true,
+    timestamps: true,
 });
 
 module.exports = model('Dev', DevSchema);
