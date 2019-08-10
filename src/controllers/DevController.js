@@ -1,5 +1,14 @@
+const axios = require('axios');
+
 module.exports = {
-    store(req, res) {
-        return res.json({ devControle: true })
+    async store(req, res) {
+        const { username } = req.body;
+        console.log(username);
+
+        
+        const { data } = await axios.get(`https://api.github.com/users/${username}`);
+
+        
+        return res.json( data );
     }
 };
