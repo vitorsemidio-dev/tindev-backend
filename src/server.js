@@ -15,6 +15,10 @@ const io = require('socket.io')(server);
 
 io.on('connection', socket => {
     console.log('Nova conexão', socket.id);
+
+    socket.on('hello', message => {
+        console.log(message);
+    })
 });
 
 
