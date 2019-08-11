@@ -12,19 +12,16 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
+const connectedUsers = {
+
+}
 
 io.on('connection', socket => {
-    console.log('Nova conexão', socket.id);
+    const { user } = socket.handshake.query;
 
-    socket.on('hello', message => {
-        console.log(message);
-    })
+    console.log(user, socket.id);
 
-    setTimeout(() => {
-        socket.emit('world', {
-            message: 'OmniStack'
-        });
-    }, 5000);
+    connectedUsers[user] = socket.id
 });
 
 
@@ -33,6 +30,13 @@ const { password } = authenticate;
 const url = `mongodb+srv://${user}:${password}@cluster0-uw7wb.mongodb.net/omnistack8?retryWrites=true&w=majority`;
 mongoose.connect( url, { useNewUrlParser: true } );
 
+
+app.use((req, res, next) => {
+    req.io = io;
+    req.connectedUsers = connectedUsers;
+    
+    return next();
+})
 
 app.use(cors());
 app.use(express.json());
