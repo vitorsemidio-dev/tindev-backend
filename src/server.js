@@ -19,6 +19,12 @@ io.on('connection', socket => {
     socket.on('hello', message => {
         console.log(message);
     })
+
+    setTimeout(() => {
+        socket.emit('world', {
+            message: 'OmniStack'
+        });
+    }, 5000);
 });
 
 
